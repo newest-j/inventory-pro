@@ -303,7 +303,25 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onBeforeMount, reactive } from "vue";
+import axios from "axios";
+import type { Product } from "../product/product";
+
+const inventoryProduct = reactive({
+  product: [] as Product[],
+});
+
+onBeforeMount(async () => {
+  try {
+    const response = await axios.get<Product[]>("../assets/data/data.json");
+    inventoryProduct.product = response.data;
+    console.log(inventoryProduct.product);
+  } catch (err) {
+    console.error("Unable to load product", err);
+  }
+});
+</script>
 
 <style scoped>
 .dashboard-container {

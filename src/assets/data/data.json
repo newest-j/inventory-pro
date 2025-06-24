@@ -1,0 +1,1013 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 15 Pro Max",
+      "category": "Electronics",
+      "quantity": 45,
+      "price": 1199.0,
+      "supplier": "Apple Inc.",
+      "status": "In Stock",
+      "icon": "bi-phone"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S24 Ultra",
+      "category": "Electronics",
+      "quantity": 8,
+      "price": 1299.99,
+      "supplier": "Samsung",
+      "status": "Low Stock",
+      "icon": "bi-phone"
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air M3",
+      "category": "Electronics",
+      "quantity": 0,
+      "price": 1399.0,
+      "supplier": "Apple Inc.",
+      "status": "Out of Stock",
+      "icon": "bi-laptop"
+    },
+    {
+      "id": 4,
+      "name": "Sony WH-1000XM5 Headphones",
+      "category": "Electronics",
+      "quantity": 23,
+      "price": 399.99,
+      "supplier": "Sony",
+      "status": "In Stock",
+      "icon": "bi-headphones"
+    },
+    {
+      "id": 5,
+      "name": "Dell XPS 13 Laptop",
+      "category": "Electronics",
+      "quantity": 12,
+      "price": 999.99,
+      "supplier": "Dell Technologies",
+      "status": "In Stock",
+      "icon": "bi-laptop"
+    },
+    {
+      "id": 6,
+      "name": "iPad Pro 12.9-inch",
+      "category": "Electronics",
+      "quantity": 7,
+      "price": 1099.0,
+      "supplier": "Apple Inc.",
+      "status": "Low Stock",
+      "icon": "bi-tablet"
+    },
+    {
+      "id": 7,
+      "name": "Nintendo Switch OLED",
+      "category": "Electronics",
+      "quantity": 31,
+      "price": 349.99,
+      "supplier": "Nintendo",
+      "status": "In Stock",
+      "icon": "bi-controller"
+    },
+    {
+      "id": 8,
+      "name": "LG OLED55C3PUA 55-inch TV",
+      "category": "Electronics",
+      "quantity": 5,
+      "price": 1499.99,
+      "supplier": "LG Electronics",
+      "status": "Low Stock",
+      "icon": "bi-tv"
+    },
+    {
+      "id": 9,
+      "name": "Canon EOS R6 Mark II",
+      "category": "Electronics",
+      "quantity": 15,
+      "price": 2499.0,
+      "supplier": "Canon",
+      "status": "In Stock",
+      "icon": "bi-camera"
+    },
+    {
+      "id": 10,
+      "name": "Bose QuietComfort Earbuds",
+      "category": "Electronics",
+      "quantity": 42,
+      "price": 279.0,
+      "supplier": "Bose Corporation",
+      "status": "In Stock",
+      "icon": "bi-earbuds"
+    },
+    {
+      "id": 11,
+      "name": "PlayStation 5",
+      "category": "Electronics",
+      "quantity": 3,
+      "price": 499.99,
+      "supplier": "Sony Interactive",
+      "status": "Low Stock",
+      "icon": "bi-playstation"
+    },
+    {
+      "id": 12,
+      "name": "Apple Watch Series 9",
+      "category": "Electronics",
+      "quantity": 28,
+      "price": 399.0,
+      "supplier": "Apple Inc.",
+      "status": "In Stock",
+      "icon": "bi-smartwatch"
+    },
+    {
+      "id": 13,
+      "name": "Samsung 49-inch Gaming Monitor",
+      "category": "Electronics",
+      "quantity": 9,
+      "price": 899.99,
+      "supplier": "Samsung",
+      "status": "Low Stock",
+      "icon": "bi-display"
+    },
+    {
+      "id": 14,
+      "name": "Logitech MX Master 3S Mouse",
+      "category": "Electronics",
+      "quantity": 67,
+      "price": 99.99,
+      "supplier": "Logitech",
+      "status": "In Stock",
+      "icon": "bi-mouse"
+    },
+    {
+      "id": 15,
+      "name": "Razer DeathAdder V3 Gaming Mouse",
+      "category": "Electronics",
+      "quantity": 34,
+      "price": 89.99,
+      "supplier": "Razer Inc.",
+      "status": "In Stock",
+      "icon": "bi-mouse"
+    },
+    {
+      "id": 16,
+      "name": "USB-C Hub 7-in-1",
+      "category": "Electronics",
+      "quantity": 2,
+      "price": 49.99,
+      "supplier": "Anker",
+      "status": "Low Stock",
+      "icon": "bi-usb-symbol"
+    },
+    {
+      "id": 17,
+      "name": "Wireless Charging Pad",
+      "category": "Electronics",
+      "quantity": 55,
+      "price": 29.99,
+      "supplier": "Belkin",
+      "status": "In Stock",
+      "icon": "bi-battery-charging"
+    },
+    {
+      "id": 18,
+      "name": "Bluetooth Portable Speaker",
+      "category": "Electronics",
+      "quantity": 1,
+      "price": 79.99,
+      "supplier": "JBL",
+      "status": "Low Stock",
+      "icon": "bi-speaker"
+    },
+    {
+      "id": 19,
+      "name": "64GB USB Flash Drive",
+      "category": "Electronics",
+      "quantity": 89,
+      "price": 19.99,
+      "supplier": "SanDisk",
+      "status": "In Stock",
+      "icon": "bi-usb-drive"
+    },
+    {
+      "id": 20,
+      "name": "4K Webcam",
+      "category": "Electronics",
+      "quantity": 0,
+      "price": 149.99,
+      "supplier": "Logitech",
+      "status": "Out of Stock",
+      "icon": "bi-camera-video"
+    },
+    {
+      "id": 21,
+      "name": "Artificial Fiddle Leaf Fig Tree",
+      "category": "Home & Garden",
+      "quantity": 15,
+      "price": 89.99,
+      "supplier": "Green Paradise",
+      "status": "In Stock",
+      "icon": "bi-tree"
+    },
+    {
+      "id": 22,
+      "name": "Solar Garden String Lights",
+      "category": "Home & Garden",
+      "quantity": 43,
+      "price": 24.99,
+      "supplier": "Brightech",
+      "status": "In Stock",
+      "icon": "bi-lightbulb"
+    },
+    {
+      "id": 23,
+      "name": "Ceramic Planter Set (3pc)",
+      "category": "Home & Garden",
+      "quantity": 6,
+      "price": 39.99,
+      "supplier": "Garden Essentials",
+      "status": "Low Stock",
+      "icon": "bi-flower1"
+    },
+    {
+      "id": 24,
+      "name": "Outdoor Patio Furniture Set",
+      "category": "Home & Garden",
+      "quantity": 2,
+      "price": 799.99,
+      "supplier": "Patio Perfect",
+      "status": "Low Stock",
+      "icon": "bi-house"
+    },
+    {
+      "id": 25,
+      "name": "Bamboo Cutting Board Set",
+      "category": "Home & Garden",
+      "quantity": 78,
+      "price": 29.99,
+      "supplier": "Kitchen Craft",
+      "status": "In Stock",
+      "icon": "bi-knife"
+    },
+    {
+      "id": 26,
+      "name": "Stainless Steel Cookware Set",
+      "category": "Home & Garden",
+      "quantity": 12,
+      "price": 149.99,
+      "supplier": "All-Clad",
+      "status": "In Stock",
+      "icon": "bi-cup-hot"
+    },
+    {
+      "id": 27,
+      "name": "Memory Foam Throw Pillows",
+      "category": "Home & Garden",
+      "quantity": 0,
+      "price": 34.99,
+      "supplier": "Comfort Plus",
+      "status": "Out of Stock",
+      "icon": "bi-house-door"
+    },
+    {
+      "id": 28,
+      "name": "Smart Thermostat",
+      "category": "Home & Garden",
+      "quantity": 23,
+      "price": 199.99,
+      "supplier": "Nest Labs",
+      "status": "In Stock",
+      "icon": "bi-thermometer-half"
+    },
+    {
+      "id": 29,
+      "name": "LED Ceiling Fan",
+      "category": "Home & Garden",
+      "quantity": 8,
+      "price": 129.99,
+      "supplier": "Hunter Fan Company",
+      "status": "Low Stock",
+      "icon": "bi-fan"
+    },
+    {
+      "id": 30,
+      "name": "Organic Herb Garden Kit",
+      "category": "Home & Garden",
+      "quantity": 34,
+      "price": 19.99,
+      "supplier": "Garden Guru",
+      "status": "In Stock",
+      "icon": "bi-flower2"
+    },
+    {
+      "id": 31,
+      "name": "Weighted Blanket 15lbs",
+      "category": "Home & Garden",
+      "quantity": 19,
+      "price": 59.99,
+      "supplier": "Sleep Better Co.",
+      "status": "In Stock",
+      "icon": "bi-house-door"
+    },
+    {
+      "id": 32,
+      "name": "Robot Vacuum Cleaner",
+      "category": "Home & Garden",
+      "quantity": 7,
+      "price": 299.99,
+      "supplier": "Roomba",
+      "status": "Low Stock",
+      "icon": "bi-robot"
+    },
+    {
+      "id": 33,
+      "name": "Essential Oil Diffuser",
+      "category": "Home & Garden",
+      "quantity": 52,
+      "price": 44.99,
+      "supplier": "Aromatherapy Plus",
+      "status": "In Stock",
+      "icon": "bi-droplet"
+    },
+    {
+      "id": 34,
+      "name": "Wall-Mounted Spice Rack",
+      "category": "Home & Garden",
+      "quantity": 27,
+      "price": 24.99,
+      "supplier": "Kitchen Solutions",
+      "status": "In Stock",
+      "icon": "bi-cup-hot"
+    },
+    {
+      "id": 35,
+      "name": "Outdoor Fire Pit",
+      "category": "Home & Garden",
+      "quantity": 4,
+      "price": 199.99,
+      "supplier": "Backyard Bliss",
+      "status": "Low Stock",
+      "icon": "bi-fire"
+    },
+    {
+      "id": 36,
+      "name": "Smart Security Camera",
+      "category": "Home & Garden",
+      "quantity": 16,
+      "price": 89.99,
+      "supplier": "Ring",
+      "status": "In Stock",
+      "icon": "bi-camera-video"
+    },
+    {
+      "id": 37,
+      "name": "Blackout Curtains Set",
+      "category": "Home & Garden",
+      "quantity": 38,
+      "price": 49.99,
+      "supplier": "Window Treatments Co.",
+      "status": "In Stock",
+      "icon": "bi-house-door"
+    },
+    {
+      "id": 38,
+      "name": "Garden Hose 100ft",
+      "category": "Home & Garden",
+      "quantity": 21,
+      "price": 39.99,
+      "supplier": "Yard Master",
+      "status": "In Stock",
+      "icon": "bi-droplet-half"
+    },
+    {
+      "id": 39,
+      "name": "Air Purifier HEPA Filter",
+      "category": "Home & Garden",
+      "quantity": 3,
+      "price": 179.99,
+      "supplier": "Pure Air Systems",
+      "status": "Low Stock",
+      "icon": "bi-wind"
+    },
+    {
+      "id": 40,
+      "name": "Storage Ottoman Bench",
+      "category": "Home & Garden",
+      "quantity": 0,
+      "price": 69.99,
+      "supplier": "Home Organization",
+      "status": "Out of Stock",
+      "icon": "bi-house-door"
+    },
+    {
+      "id": 41,
+      "name": "The Psychology of Money",
+      "category": "Books & Media",
+      "quantity": 67,
+      "price": 14.99,
+      "supplier": "Harriman House",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 42,
+      "name": "Atomic Habits",
+      "category": "Books & Media",
+      "quantity": 45,
+      "price": 18.99,
+      "supplier": "Avery Publishing",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 43,
+      "name": "The Seven Husbands of Evelyn Hugo",
+      "category": "Books & Media",
+      "quantity": 8,
+      "price": 16.99,
+      "supplier": "Atria Books",
+      "status": "Low Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 44,
+      "name": "Educated: A Memoir",
+      "category": "Books & Media",
+      "quantity": 23,
+      "price": 15.99,
+      "supplier": "Random House",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 45,
+      "name": "The Midnight Library",
+      "category": "Books & Media",
+      "quantity": 0,
+      "price": 14.99,
+      "supplier": "Viking Press",
+      "status": "Out of Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 46,
+      "name": "Dune: Complete Series Box Set",
+      "category": "Books & Media",
+      "quantity": 12,
+      "price": 89.99,
+      "supplier": "Ace Books",
+      "status": "In Stock",
+      "icon": "bi-collection"
+    },
+    {
+      "id": 47,
+      "name": "The 4-Hour Workweek",
+      "category": "Books & Media",
+      "quantity": 34,
+      "price": 17.99,
+      "supplier": "Crown Business",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 48,
+      "name": "Where the Crawdads Sing",
+      "category": "Books & Media",
+      "quantity": 5,
+      "price": 15.99,
+      "supplier": "G.P. Putnam's Sons",
+      "status": "Low Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 49,
+      "name": "The Silent Patient",
+      "category": "Books & Media",
+      "quantity": 28,
+      "price": 16.99,
+      "supplier": "Celadon Books",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 50,
+      "name": "Think and Grow Rich",
+      "category": "Books & Media",
+      "quantity": 91,
+      "price": 12.99,
+      "supplier": "TarcherPerigee",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 51,
+      "name": "Netflix Gift Card $50",
+      "category": "Books & Media",
+      "quantity": 156,
+      "price": 50.0,
+      "supplier": "Netflix Inc.",
+      "status": "In Stock",
+      "icon": "bi-gift"
+    },
+    {
+      "id": 52,
+      "name": "Spotify Premium 6 Months",
+      "category": "Books & Media",
+      "quantity": 78,
+      "price": 59.94,
+      "supplier": "Spotify AB",
+      "status": "In Stock",
+      "icon": "bi-music-note"
+    },
+    {
+      "id": 53,
+      "name": "The Great Gatsby - Hardcover",
+      "category": "Books & Media",
+      "quantity": 42,
+      "price": 19.99,
+      "supplier": "Scribner",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 54,
+      "name": "National Geographic Subscription",
+      "category": "Books & Media",
+      "quantity": 25,
+      "price": 39.99,
+      "supplier": "National Geographic",
+      "status": "In Stock",
+      "icon": "bi-journal"
+    },
+    {
+      "id": 55,
+      "name": "The Complete Works of Shakespeare",
+      "category": "Books & Media",
+      "quantity": 7,
+      "price": 29.99,
+      "supplier": "Barnes & Noble Classics",
+      "status": "Low Stock",
+      "icon": "bi-collection"
+    },
+    {
+      "id": 56,
+      "name": "Audible Premium Plus 3 Months",
+      "category": "Books & Media",
+      "quantity": 89,
+      "price": 44.85,
+      "supplier": "Audible Inc.",
+      "status": "In Stock",
+      "icon": "bi-headphones"
+    },
+    {
+      "id": 57,
+      "name": "Harry Potter Complete Set",
+      "category": "Books & Media",
+      "quantity": 15,
+      "price": 129.99,
+      "supplier": "Scholastic",
+      "status": "In Stock",
+      "icon": "bi-collection"
+    },
+    {
+      "id": 58,
+      "name": "Marvel Comics Collection",
+      "category": "Books & Media",
+      "quantity": 3,
+      "price": 199.99,
+      "supplier": "Marvel Entertainment",
+      "status": "Low Stock",
+      "icon": "bi-journal-bookmark"
+    },
+    {
+      "id": 59,
+      "name": "The Art of War - Deluxe Edition",
+      "category": "Books & Media",
+      "quantity": 18,
+      "price": 24.99,
+      "supplier": "Dover Publications",
+      "status": "In Stock",
+      "icon": "bi-book"
+    },
+    {
+      "id": 60,
+      "name": "YouTube Premium Family Plan",
+      "category": "Books & Media",
+      "quantity": 0,
+      "price": 107.88,
+      "supplier": "Google LLC",
+      "status": "Out of Stock",
+      "icon": "bi-play-btn"
+    },
+    {
+      "id": 61,
+      "name": "Watercolor Paint Set 36 Colors",
+      "category": "Arts & Crafts",
+      "quantity": 45,
+      "price": 29.99,
+      "supplier": "Winsor & Newton",
+      "status": "In Stock",
+      "icon": "bi-palette"
+    },
+    {
+      "id": 62,
+      "name": "Cricut Maker 3 Cutting Machine",
+      "category": "Arts & Crafts",
+      "quantity": 8,
+      "price": 399.99,
+      "supplier": "Cricut Inc.",
+      "status": "Low Stock",
+      "icon": "bi-scissors"
+    },
+    {
+      "id": 63,
+      "name": "Premium Acrylic Paint Set",
+      "category": "Arts & Crafts",
+      "quantity": 67,
+      "price": 39.99,
+      "supplier": "Golden Artist Colors",
+      "status": "In Stock",
+      "icon": "bi-palette"
+    },
+    {
+      "id": 64,
+      "name": "Embroidery Hoop Set with Fabric",
+      "category": "Arts & Crafts",
+      "quantity": 23,
+      "price": 19.99,
+      "supplier": "DMC",
+      "status": "In Stock",
+      "icon": "bi-circle"
+    },
+    {
+      "id": 65,
+      "name": "Professional Drawing Pencils Set",
+      "category": "Arts & Crafts",
+      "quantity": 0,
+      "price": 24.99,
+      "supplier": "Faber-Castell",
+      "status": "Out of Stock",
+      "icon": "bi-pencil"
+    },
+    {
+      "id": 66,
+      "name": "Pottery Wheel for Beginners",
+      "category": "Arts & Crafts",
+      "quantity": 3,
+      "price": 189.99,
+      "supplier": "Speedball Art",
+      "status": "Low Stock",
+      "icon": "bi-circle-fill"
+    },
+    {
+      "id": 67,
+      "name": "Origami Paper Pack 1000 Sheets",
+      "category": "Arts & Crafts",
+      "quantity": 89,
+      "price": 14.99,
+      "supplier": "Aitoh",
+      "status": "In Stock",
+      "icon": "bi-triangle"
+    },
+    {
+      "id": 68,
+      "name": "Jewelry Making Starter Kit",
+      "category": "Arts & Crafts",
+      "quantity": 34,
+      "price": 49.99,
+      "supplier": "Beadalon",
+      "status": "In Stock",
+      "icon": "bi-gem"
+    },
+    {
+      "id": 69,
+      "name": "Canvas Panels 16x20 Pack of 10",
+      "category": "Arts & Crafts",
+      "quantity": 52,
+      "price": 22.99,
+      "supplier": "Arteza",
+      "status": "In Stock",
+      "icon": "bi-easel"
+    },
+    {
+      "id": 70,
+      "name": "Calligraphy Pen Set",
+      "category": "Arts & Crafts",
+      "quantity": 17,
+      "price": 34.99,
+      "supplier": "Pilot Corporation",
+      "status": "In Stock",
+      "icon": "bi-pen"
+    },
+    {
+      "id": 71,
+      "name": "Polymer Clay Starter Kit",
+      "category": "Arts & Crafts",
+      "quantity": 26,
+      "price": 27.99,
+      "supplier": "Sculpey",
+      "status": "In Stock",
+      "icon": "bi-circle-fill"
+    },
+    {
+      "id": 72,
+      "name": "Knitting Needles Complete Set",
+      "category": "Arts & Crafts",
+      "quantity": 7,
+      "price": 45.99,
+      "supplier": "ChiaoGoo",
+      "status": "Low Stock",
+      "icon": "bi-heart"
+    },
+    {
+      "id": 73,
+      "name": "Professional Easel Stand",
+      "category": "Arts & Crafts",
+      "quantity": 12,
+      "price": 89.99,
+      "supplier": "US Art Supply",
+      "status": "In Stock",
+      "icon": "bi-easel"
+    },
+    {
+      "id": 74,
+      "name": "Scrapbooking Supplies Kit",
+      "category": "Arts & Crafts",
+      "quantity": 38,
+      "price": 32.99,
+      "supplier": "Creative Memories",
+      "status": "In Stock",
+      "icon": "bi-scissors"
+    },
+    {
+      "id": 75,
+      "name": "Wood Burning Tool Set",
+      "category": "Arts & Crafts",
+      "quantity": 15,
+      "price": 29.99,
+      "supplier": "Walnut Hollow",
+      "status": "In Stock",
+      "icon": "bi-fire"
+    },
+    {
+      "id": 76,
+      "name": "Digital Art Tablet",
+      "category": "Arts & Crafts",
+      "quantity": 4,
+      "price": 199.99,
+      "supplier": "Wacom",
+      "status": "Low Stock",
+      "icon": "bi-tablet"
+    },
+    {
+      "id": 77,
+      "name": "Mosaic Tile Art Kit",
+      "category": "Arts & Crafts",
+      "quantity": 21,
+      "price": 24.99,
+      "supplier": "Melissa & Doug",
+      "status": "In Stock",
+      "icon": "bi-grid"
+    },
+    {
+      "id": 78,
+      "name": "Leather Crafting Tools",
+      "category": "Arts & Crafts",
+      "quantity": 9,
+      "price": 79.99,
+      "supplier": "Tandy Leather",
+      "status": "Low Stock",
+      "icon": "bi-tools"
+    },
+    {
+      "id": 79,
+      "name": "Resin Art Starter Kit",
+      "category": "Arts & Crafts",
+      "quantity": 31,
+      "price": 39.99,
+      "supplier": "ArtResin",
+      "status": "In Stock",
+      "icon": "bi-droplet"
+    },
+    {
+      "id": 80,
+      "name": "Cross Stitch Pattern Books",
+      "category": "Arts & Crafts",
+      "quantity": 0,
+      "price": 18.99,
+      "supplier": "Leisure Arts",
+      "status": "Out of Stock",
+      "icon": "bi-grid-3x3"
+    },
+    {
+      "id": 81,
+      "name": "Vitamin D3 5000 IU Supplements",
+      "category": "Health & Beauty",
+      "quantity": 124,
+      "price": 19.99,
+      "supplier": "Nature Made",
+      "status": "In Stock",
+      "icon": "bi-capsule"
+    },
+    {
+      "id": 82,
+      "name": "Retinol Anti-Aging Serum",
+      "category": "Health & Beauty",
+      "quantity": 67,
+      "price": 24.99,
+      "supplier": "The Ordinary",
+      "status": "In Stock",
+      "icon": "bi-droplet-half"
+    },
+    {
+      "id": 83,
+      "name": "Hyaluronic Acid Moisturizer",
+      "category": "Health & Beauty",
+      "quantity": 8,
+      "price": 32.99,
+      "supplier": "CeraVe",
+      "status": "Low Stock",
+      "icon": "bi-moisture"
+    },
+    {
+      "id": 84,
+      "name": "Electric Toothbrush with UV Sanitizer",
+      "category": "Health & Beauty",
+      "quantity": 23,
+      "price": 89.99,
+      "supplier": "Oral-B",
+      "status": "In Stock",
+      "icon": "bi-brush"
+    },
+    {
+      "id": 85,
+      "name": "Protein Powder Chocolate 5lbs",
+      "category": "Health & Beauty",
+      "quantity": 34,
+      "price": 49.99,
+      "supplier": "Optimum Nutrition",
+      "status": "In Stock",
+      "icon": "bi-cup-straw"
+    },
+    {
+      "id": 86,
+      "name": "Face Mask Sheet Set 20pc",
+      "category": "Health & Beauty",
+      "quantity": 0,
+      "price": 15.99,
+      "supplier": "The Face Shop",
+      "status": "Out of Stock",
+      "icon": "bi-person"
+    },
+    {
+      "id": 87,
+      "name": "Jade Roller and Gua Sha Set",
+      "category": "Health & Beauty",
+      "quantity": 45,
+      "price": 12.99,
+      "supplier": "Herbivore Botanicals",
+      "status": "In Stock",
+      "icon": "bi-circle"
+    },
+    {
+      "id": 88,
+      "name": "Hair Growth Vitamins",
+      "category": "Health & Beauty",
+      "quantity": 78,
+      "price": 29.99,
+      "supplier": "Viviscal",
+      "status": "In Stock",
+      "icon": "bi-capsule"
+    },
+    {
+      "id": 89,
+      "name": "LED Light Therapy Mask",
+      "category": "Health & Beauty",
+      "quantity": 5,
+      "price": 199.99,
+      "supplier": "CurrentBody",
+      "status": "Low Stock",
+      "icon": "bi-lightbulb"
+    },
+    {
+      "id": 90,
+      "name": "Collagen Peptides Powder",
+      "category": "Health & Beauty",
+      "quantity": 91,
+      "price": 39.99,
+      "supplier": "Vital Proteins",
+      "status": "In Stock",
+      "icon": "bi-cup-straw"
+    },
+    {
+      "id": 91,
+      "name": "Dry Shampoo Spray Set",
+      "category": "Health & Beauty",
+      "quantity": 52,
+      "price": 18.99,
+      "supplier": "Batiste",
+      "status": "In Stock",
+      "icon": "bi-spray-can"
+    },
+    {
+      "id": 92,
+      "name": "Multivitamin Gummies",
+      "category": "Health & Beauty",
+      "quantity": 156,
+      "price": 14.99,
+      "supplier": "Vitafusion",
+      "status": "In Stock",
+      "icon": "bi-capsule"
+    },
+    {
+      "id": 93,
+      "name": "Sunscreen SPF 50 Face Lotion",
+      "category": "Health & Beauty",
+      "quantity": 3,
+      "price": 16.99,
+      "supplier": "Neutrogena",
+      "status": "Low Stock",
+      "icon": "bi-sun"
+    },
+    {
+      "id": 94,
+      "name": "Massage Gun Deep Tissue",
+      "category": "Health & Beauty",
+      "quantity": 17,
+      "price": 149.99,
+      "supplier": "Theragun",
+      "status": "In Stock",
+      "icon": "bi-tools"
+    },
+    {
+      "id": 95,
+      "name": "Aromatherapy Bath Bomb Set",
+      "category": "Health & Beauty",
+      "quantity": 28,
+      "price": 22.99,
+      "supplier": "Lush Cosmetics",
+      "status": "In Stock",
+      "icon": "bi-droplet"
+    },
+    {
+      "id": 96,
+      "name": "Probiotic Supplements 60ct",
+      "category": "Health & Beauty",
+      "quantity": 89,
+      "price": 24.99,
+      "supplier": "Garden of Life",
+      "status": "In Stock",
+      "icon": "bi-capsule"
+    },
+    {
+      "id": 97,
+      "name": "Makeup Brush Set Professional",
+      "category": "Health & Beauty",
+      "quantity": 6,
+      "price": 39.99,
+      "supplier": "Real Techniques",
+      "status": "Low Stock",
+      "icon": "bi-brush"
+    },
+    {
+      "id": 98,
+      "name": "Hair Straightener Ceramic",
+      "category": "Health & Beauty",
+      "quantity": 21,
+      "price": 79.99,
+      "supplier": "GHD",
+      "status": "In Stock",
+      "icon": "bi-tools"
+    },
+    {
+      "id": 99,
+      "name": "Essential Oils Starter Kit",
+      "category": "Health & Beauty",
+      "quantity": 0,
+      "price": 49.99,
+      "supplier": "doTERRA",
+      "status": "Out of Stock",
+      "icon": "bi-droplet-half"
+    },
+    {
+      "id": 100,
+      "name": "Teeth Whitening Kit",
+      "category": "Health & Beauty",
+      "quantity": 12,
+      "price": 34.99,
+      "supplier": "Crest",
+      "status": "In Stock",
+      "icon": "bi-brightness-high"
+    }
+  ],
+
+  "Status": {
+    "total_product": 100,
+    "in_stock": 68,
+    "low_stock": 22,
+    "out_of_stock": 10,
+    "total_categories": 5,
+    "active_categories": 5
+  }
+}
