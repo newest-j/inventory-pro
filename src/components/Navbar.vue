@@ -87,7 +87,7 @@
               :duration="500"
               :delay="800"
             >
-              <router-link to="/dashboard" class="btn btn-gradient hover-lift"
+              <router-link to="/signup" class="btn btn-gradient hover-lift"
                 >Get Started</router-link
               >
             </li>

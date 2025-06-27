@@ -6,6 +6,7 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import { MotionPlugin } from "@vueuse/motion";
+import { userInfoStore } from "./stores/UserStore";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -23,5 +24,9 @@ app.use(MotionPlugin);
 
 app.component("side-bar", SideBar);
 app.component("offcanvas", Offcanvas);
+
+// Initialize authentication check
+const userStore = userInfoStore();
+userStore.checkAuth();
 
 app.mount("#app");

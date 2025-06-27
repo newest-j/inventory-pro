@@ -42,6 +42,10 @@
               Settings
             </router-link>
           </li>
+
+          <button @click="handleLogout" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
         </ul>
       </nav>
     </div>
@@ -104,13 +108,28 @@
               Settings
             </router-link>
           </li>
+
+          <button @click="handleLogout" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
         </ul>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+import { userInfoStore } from "../stores/UserStore";
+
+const router = useRouter();
+const userStore = userInfoStore();
+
+const handleLogout = () => {
+  userStore.logout();
+  router.push("/login");
+};
+</script>
 
 <style scoped>
 .sidebar {

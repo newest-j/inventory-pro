@@ -83,17 +83,21 @@
                 </div>
 
                 <!-- Login Form -->
-                <form class="login-form">
+                <form @submit.prevent="onSubmit" class="login-form">
                   <div class="form-group hover-focus mb-3">
                     <label class="form-label">Email Address</label>
                     <div class="input-with-icon">
                       <i class="fas fa-envelope input-icon"></i>
                       <input
+                        v-model="userStore.email"
                         type="email"
                         class="form-control"
                         placeholder="Enter your email address"
-                        required
+                        @input="userStore.validateEmail"
                       />
+                      <p class="text-danger">
+                        {{ userStore.error.email }}
+                      </p>
                     </div>
                   </div>
 
@@ -102,48 +106,46 @@
                     <div class="password-input">
                       <i class="fas fa-lock input-icon"></i>
                       <input
-                        type="password"
+                        v-model="userStore.password"
+                        :type="showPassword ? 'text' : 'password'"
                         class="form-control"
-                        placeholder="Enter your password"
-                        required
+                        placeholder="A1!b2@C3"
+                        @input="userStore.validatePassword"
                       />
-                      <button type="button" class="password-toggle">
-                        <i class="fas fa-eye"></i>
+                      <button
+                        @click="togglePassword"
+                        type="button"
+                        class="password-toggle"
+                      >
+                        <i
+                          :class="
+                            showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'
+                          "
+                        ></i>
                       </button>
                     </div>
-                  </div>
-
-                  <!-- Remember & Forgot -->
-                  <div class="form-options mb-4">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="rememberMe"
-                      />
-                      <label class="form-check-label" for="rememberMe">
-                        Remember me
-                      </label>
-                    </div>
-                    <a href="#" class="forgot-link">Forgot password?</a>
+                    <p class="text-danger">
+                      {{ userStore.error.password }}
+                    </p>
                   </div>
 
                   <!-- Submit Button -->
                   <button
                     type="submit"
                     class="btn btn-gradient w-100 btn-lg hover-lift mb-3"
+                    :disabled="userStore.isSubmitting"
                   >
-                    <i class="fas fa-sign-in-alt me-2"></i>
-                    Sign In
-                  </button>
+                    <!-- Bootstrap Spinner -->
+                    <span
+                      v-if="userStore.isSubmitting"
+                      class="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <!-- Sign In icon when not loading -->
+                    <i v-else class="fas fa-sign-in-alt me-2"></i>
 
-                  <!-- Demo Button -->
-                  <button
-                    type="button"
-                    class="btn btn-outline-glass w-100 hover-scale"
-                  >
-                    <i class="fas fa-play me-2"></i>
-                    Try Demo Account
+                    {{ userStore.isSubmitting ? "Signing In..." : "Sign In" }}
                   </button>
                 </form>
 
@@ -329,7 +331,23 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+import { userInfoStore } from "../stores/UserStore";
+import { useRouter } from "vue-router";
+
+const showPassword = ref<boolean>(false);
+const userStore = userInfoStore();
+const router = useRouter();
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const onSubmit = async () => {
+  await userStore.loginUser(router);
+};
+</script>
 
 <style scoped>
 /* Base Styles */

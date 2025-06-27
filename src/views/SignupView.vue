@@ -104,50 +104,66 @@
                 </div>
 
                 <!-- Signup Form -->
-                <form class="signup-form">
+                <form @submit.prevent="onSubmit" class="signup-form">
                   <div class="row g-3">
                     <div class="col-md-6">
                       <div class="form-group hover-focus">
                         <label class="form-label">First Name</label>
                         <input
+                          v-model="userStore.firstName"
                           type="text"
                           class="form-control"
                           placeholder="Enter your first name"
-                          required
+                          @input="userStore.validateFirstName"
                         />
+                        <p class="text-danger">
+                          {{ userStore.error.userName }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group hover-focus">
                         <label class="form-label">Last Name</label>
                         <input
+                          v-model="userStore.lastName"
                           type="text"
                           class="form-control"
                           placeholder="Enter your last name"
-                          required
+                          @input="userStore.validateLastName"
                         />
+                        <p class="text-danger">
+                          {{ userStore.error.userName }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-group hover-focus">
                         <label class="form-label">Email Address</label>
                         <input
+                          v-model="userStore.email"
                           type="email"
                           class="form-control"
                           placeholder="Enter your email address"
-                          required
+                          @input="userStore.validateEmail"
                         />
+                        <p class="text-danger">
+                          {{ userStore.error.email }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-group hover-focus">
                         <label class="form-label">Company Name</label>
                         <input
+                          v-model="userStore.companyName"
                           type="text"
                           class="form-control"
                           placeholder="Enter your company name"
-                          required
+                          @input="userStore.validateCompanyName"
                         />
+                        <p class="text-danger">
+                          {{ userStore.error.companyName }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -155,15 +171,28 @@
                         <label class="form-label">Password</label>
                         <div class="password-input">
                           <input
-                            type="password"
+                            v-model="userStore.password"
+                            :type="showPassword ? 'text' : 'password'"
                             class="form-control"
-                            placeholder="Create a strong password"
-                            required
+                            placeholder="A1!b2@C3"
+                            @input="userStore.validatePassword"
                           />
-                          <button type="button" class="password-toggle">
-                            <i class="fas fa-eye"></i>
+
+                          <button
+                            @click="togglePassword"
+                            type="button"
+                            class="password-toggle"
+                          >
+                            <i
+                              :class="
+                                showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'
+                              "
+                            ></i>
                           </button>
                         </div>
+                        <p class="text-danger">
+                          {{ userStore.error.password }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -171,15 +200,30 @@
                         <label class="form-label">Confirm Password</label>
                         <div class="password-input">
                           <input
-                            type="password"
+                            v-model="userStore.confirmPassword"
+                            :type="showConfirmPassword ? 'text' : 'password'"
                             class="form-control"
                             placeholder="Confirm your password"
-                            required
+                            @input="userStore.validateConfirmPassword"
                           />
-                          <button type="button" class="password-toggle">
-                            <i class="fas fa-eye"></i>
+
+                          <button
+                            @click="toggleConfirmPassword"
+                            type="button"
+                            class="password-toggle"
+                          >
+                            <i
+                              :class="
+                                showConfirmPassword
+                                  ? 'fas fa-eye-slash'
+                                  : 'fas fa-eye'
+                              "
+                            ></i>
                           </button>
                         </div>
+                        <p class="text-danger">
+                          {{ userStore.error.password }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-12">
@@ -188,16 +232,25 @@
                           >Phone Number (Optional)</label
                         >
                         <input
+                          v-model="userStore.phoneNumber"
                           type="tel"
                           class="form-control"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+2348123456789"
+                          @input="userStore.validatephoneNumner"
                         />
+                        <p class="text-danger">
+                          {{ userStore.error.phoneNumber }}
+                        </p>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-group hover-focus">
                         <label class="form-label">Company Size</label>
-                        <select class="form-control" required>
+                        <select
+                          class="form-control"
+                          v-model="userStore.companySize"
+                          @change="userStore.validateCompanySize"
+                        >
                           <option value="">Select company size</option>
                           <option value="1-10">1-10 employees</option>
                           <option value="11-50">11-50 employees</option>
@@ -205,6 +258,10 @@
                           <option value="201-1000">201-1000 employees</option>
                           <option value="1000+">1000+ employees</option>
                         </select>
+
+                        <p class="text-danger">
+                          {{ userStore.error.companySize }}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -215,21 +272,19 @@
                     <div class="strength-bar">
                       <div
                         class="strength-fill medium"
-                        style="width: 66%"
+                        style="width: 100%"
                       ></div>
                     </div>
-                    <small class="strength-text medium"
-                      >Medium - Add special character</small
-                    >
+                    <small class="strength-text medium">High - secure</small>
                   </div>
 
                   <!-- Terms and Conditions -->
                   <div class="form-check mb-4">
                     <input
+                      v-model="userStore.agreeTerm"
                       class="form-check-input"
                       type="checkbox"
                       id="termsCheck"
-                      required
                     />
                     <label class="form-check-label" for="termsCheck">
                       I agree to the
@@ -238,27 +293,29 @@
                       <a href="#" class="terms-link">Privacy Policy</a>
                     </label>
                   </div>
-
-                  <!-- Marketing Consent -->
-                  <div class="form-check mb-4">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="marketingCheck"
-                    />
-                    <label class="form-check-label" for="marketingCheck">
-                      I'd like to receive product updates and marketing
-                      communications
-                    </label>
-                  </div>
+                  <p class="text-danger">{{ userStore.error.terms }}</p>
 
                   <!-- Submit Button -->
                   <button
                     type="submit"
                     class="btn btn-gradient w-100 btn-lg hover-lift"
+                    :disabled="userStore.isSubmitting"
                   >
-                    <i class="fas fa-rocket me-2"></i>
-                    Create My Account
+                    <!-- Bootstrap Spinner -->
+                    <span
+                      v-if="userStore.isSubmitting"
+                      class="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <!-- Rocket icon when not loading -->
+                    <i v-else class="fas fa-rocket me-s2"></i>
+
+                    {{
+                      userStore.isSubmitting
+                        ? "Creating Account..."
+                        : "Create My Account"
+                    }}
                   </button>
                 </form>
 
@@ -413,7 +470,27 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+import { userInfoStore } from "../stores/UserStore";
+import { useRouter } from "vue-router";
+
+const showPassword = ref<boolean>(false);
+const showConfirmPassword = ref<boolean>(false);
+const userStore = userInfoStore();
+const router = useRouter();
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
+const toggleConfirmPassword = () => {
+  showConfirmPassword.value = !showConfirmPassword.value;
+};
+
+const onSubmit = async () => {
+  await userStore.handleSubmit(router);
+};
+</script>
 
 <style scoped>
 /* Base Styles */
@@ -691,6 +768,12 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   width: 100%;
+}
+
+.form-control option {
+  background: #1e293b;
+  color: #ffffff;
+  padding: 0.5rem;
 }
 
 .form-control:focus {
