@@ -133,11 +133,11 @@
                   <button
                     type="submit"
                     class="btn btn-gradient w-100 btn-lg hover-lift mb-3"
-                    :disabled="userStore.isSubmitting"
+                    :disabled="userStore.isLogging"
                   >
                     <!-- Bootstrap Spinner -->
                     <span
-                      v-if="userStore.isSubmitting"
+                      v-if="userStore.isLogging"
                       class="spinner-border spinner-border-sm me-2"
                       role="status"
                       aria-hidden="true"
@@ -145,7 +145,7 @@
                     <!-- Sign In icon when not loading -->
                     <i v-else class="fas fa-sign-in-alt me-2"></i>
 
-                    {{ userStore.isSubmitting ? "Signing In..." : "Sign In" }}
+                    {{ userStore.isLogging ? "Signing In..." : "Sign In" }}
                   </button>
                 </form>
 
@@ -345,7 +345,7 @@ const togglePassword = () => {
 };
 
 const onSubmit = async () => {
-  await userStore.loginUser(router);
+  await userStore.handleLogin(router);
 };
 </script>
 

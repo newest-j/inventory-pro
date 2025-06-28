@@ -15,6 +15,7 @@ export const userInfoStore = defineStore("userInfo", {
     companySize: "",
     agreeTerm: false,
     isSubmitting: false,
+    isLogging: false,
     isAuthenticated: false,
     currentUser: null as any,
     error: {
@@ -142,11 +143,37 @@ export const userInfoStore = defineStore("userInfo", {
       localStorage.setItem("currentUser", JSON.stringify(user));
     },
 
-    logout() {
-      this.isAuthenticated = false;
-      this.currentUser = null;
-      localStorage.removeItem("isAuthenticated");
-      localStorage.removeItem("currentUser");
+    async logout(router: any) {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to logout?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, logout",
+        cancelButtonText: "Cancel",
+      });
+
+      if (result.isConfirmed) {
+        this.isAuthenticated = false;
+        this.currentUser = null;
+        localStorage.removeItem("isAuthenticated");
+        localStorage.removeItem("currentUser");
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logged out successfully!",
+          showConfirmButton: false,
+          timer: 1000,
+          toast: true,
+        });
+
+        setTimeout(() => {
+          if (router) router.push("/login");
+        }, 1000);
+      }
     },
 
     checkAuth() {
@@ -243,7 +270,7 @@ export const userInfoStore = defineStore("userInfo", {
             icon: "success",
             title: "Account created successfully!",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1000,
             toast: true,
           });
 
@@ -265,6 +292,7 @@ export const userInfoStore = defineStore("userInfo", {
 
           // Redirect to dashboard
           setTimeout(() => {
+            this.isSubmitting = false;
             if (router) router.push("/dashboard");
           }, 1000);
 
@@ -344,13 +372,14 @@ export const userInfoStore = defineStore("userInfo", {
           toast: true,
         });
       } finally {
-        this.isSubmitting = false;
+        if (!this.isAuthenticated) {
+          this.isSubmitting = false;
+        }
       }
     },
 
     // login
     async loginUser(router: any) {
-      this.isSubmitting = true;
       try {
         const response = await axios.get("http://localhost:3000/users");
         const users = await response.data;
@@ -370,7 +399,7 @@ export const userInfoStore = defineStore("userInfo", {
             icon: "success",
             title: "Login successful!",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1000,
             toast: true,
           });
 
@@ -378,7 +407,9 @@ export const userInfoStore = defineStore("userInfo", {
           this.password = "";
 
           setTimeout(() => {
-            if (router) router.push("./dashboard");
+            this.isLogging = false; // Stop spinner before redirect
+
+            if (router) router.push("/dashboard");
           }, 1000);
 
           return matchedUser;
@@ -404,8 +435,47 @@ export const userInfoStore = defineStore("userInfo", {
           timer: 3000,
           toast: true,
         });
+      }
+    },
+
+    async handleLogin(router: any) {
+      this.isLogging = true;
+
+      try {
+        // Validate all fields
+        this.validateEmail();
+        this.validatePassword();
+
+        // Check if there are any validation errors
+        if (!this.error.email && !this.error.password) {
+          // If validation passes, create user
+          await this.loginUser(router);
+        } else {
+          // If validation fails, show error
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Please fix the validation errors",
+            showConfirmButton: false,
+            timer: 3000,
+            toast: true,
+          });
+        }
+      } catch (error: any) {
+        console.error("Handle login error:", error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Something went wrong",
+          text: error.message || "Please try again",
+          showConfirmButton: false,
+          timer: 3000,
+          toast: true,
+        });
       } finally {
-        this.isSubmitting = true;
+        if (!this.isAuthenticated) {
+          this.isLogging = false;
+        }
       }
     },
 

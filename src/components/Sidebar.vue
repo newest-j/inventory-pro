@@ -125,9 +125,8 @@ import { userInfoStore } from "../stores/UserStore";
 const router = useRouter();
 const userStore = userInfoStore();
 
-const handleLogout = () => {
-  userStore.logout();
-  router.push("/login");
+const handleLogout = async () => {
+  await userStore.logout(router);
 };
 </script>
 
