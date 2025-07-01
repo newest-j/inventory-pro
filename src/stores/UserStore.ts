@@ -138,9 +138,9 @@ export const userInfoStore = defineStore("userInfo", {
     // to protect the route
     setAuthenticated(user: UserData) {
       this.isAuthenticated = true;
-      this.currentUser = user;
+      this.currentUser = user.id;
       localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem("currentUser", JSON.stringify(user));
+      localStorage.setItem("currentUser", JSON.stringify(user.id));
     },
 
     async logout(router: any) {

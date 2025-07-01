@@ -156,7 +156,11 @@
                       <i class="bi bi-download me-1"></i>
                       Export
                     </button>
-                    <button class="btn btn-primary hover-lift">
+                    <button
+                      class="btn btn-primary hover-lift"
+                      data-bs-toggle="modal"
+                      data-bs-target="#addProductModal"
+                    >
                       <i class="bi bi-plus me-1"></i>
                       Add Product
                     </button>
@@ -195,11 +199,7 @@
                           ><i class="bi bi-pencil me-2"></i>Edit</a
                         >
                       </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
+
                       <li><hr class="dropdown-divider" /></li>
                       <li>
                         <a class="dropdown-item text-danger" href="#"
@@ -250,416 +250,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Product Card 2 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-            <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
-            >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-laptop fs-1 text-muted"></i>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">MacBook Air M2</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">8</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$1,199.00</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Apple Inc.</small>
-                  <span class="badge bg-warning text-dark">Low Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-warning" style="width: 25%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 3 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-            <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
-            >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-headphones fs-1 text-muted"></i>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">Wireless Headphones</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">0</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$199.99</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Sony</small>
-                  <span class="badge bg-danger">Out of Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-danger" style="width: 0%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 4 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-            <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
-            >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-smartwatch fs-1 text-muted"></i>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">Apple Watch Series 8</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">22</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$399.00</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Apple Inc.</small>
-                  <span class="badge bg-success">In Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-success" style="width: 60%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 5 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-            <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
-            >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-tablet fs-1 text-muted"></i>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">iPad Pro 12.9"</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">15</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$1,099.00</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Apple Inc.</small>
-                  <span class="badge bg-success">In Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-success" style="width: 50%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 6 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
-            <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
-            >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-mouse fs-1 text-muted"></i>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-files me-2"></i>Duplicate</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">Gaming Mouse Pro</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">5</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$79.99</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Logitech</small>
-                  <span class="badge bg-warning text-dark">Low Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-warning" style="width: 15%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Pagination -->
@@ -684,10 +274,54 @@
         </nav>
       </div>
     </div>
+
+    <!-- <ProductModal /> -->
+
+    <div
+      class="modal fade"
+      id="addProductModal"
+      tabindex="-1"
+      aria-labelledby="addProductModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">
+              Add New Product
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <InventoryForm />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="bi bi-plus me-1"></i>
+              Add Product
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import InventoryForm from "../components/InventoryForm.vue";
+</script>
 
 <style scoped>
 /* Base Layout */

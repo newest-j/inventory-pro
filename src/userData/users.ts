@@ -1,3 +1,5 @@
+import type { Product, ProductStatus } from "../product/product";
+
 export default interface UserData {
   id?: string;
   firstName: string;
@@ -7,4 +9,6 @@ export default interface UserData {
   password: string;
   phoneNumber: string;
   companySize: string;
+  products?: Product[];
+  stats?: ProductStatus;
 }

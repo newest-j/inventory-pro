@@ -1,12 +1,14 @@
 export interface Product {
   category: string;
-  icon: string;
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
-  status: string;
+  status: "active" | "inactive" | "discontinued";
   supplier: string;
+  location: string;
+  lowstock: number;
+  description: string;
 }
 
 export interface ProductStatus {
@@ -18,7 +20,7 @@ export interface ProductStatus {
   active_categories: number;
 }
 
-export interface ProductResponse {
-  items: Product[];
-  Status: ProductStatus;
-}
+// export interface UserResponse {
+//   products: Product[];
+//   stats: ProductStatus;
+// }
