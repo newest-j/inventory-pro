@@ -4,3 +4,320 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+/* Add to base.css or a global style file */
+/* --- Improved Dark Mode Styles --- */
+body.dark-mode {
+  background: #181a1b !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .card,
+body.dark-mode .main-content,
+body.dark-mode .content,
+body.dark-mode .sidebar,
+body.dark-mode .modal-content {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #23272b !important;
+}
+
+body.dark-mode .bg-light,
+body.dark-mode .bg-white,
+body.dark-mode .bg-body,
+body.dark-mode .bg-secondary {
+  background-color: #23272b !important;
+}
+
+body.dark-mode .bg-primary {
+  background-color: #0d6efd !important;
+}
+
+body.dark-mode .text-dark,
+body.dark-mode .text-body,
+body.dark-mode .text-black {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .text-secondary {
+  color: #b0b3b8 !important;
+}
+
+body.dark-mode .border,
+body.dark-mode .border-bottom,
+body.dark-mode .border-top,
+body.dark-mode .border-start,
+body.dark-mode .border-end {
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode .form-check-input,
+body.dark-mode .form-control:disabled,
+body.dark-mode .form-select:disabled {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+  border-color: #0d6efd !important;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .dropdown-item {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .modal-content {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .btn,
+body.dark-mode .btn-light {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-outline-primary {
+  color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  background: transparent !important;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+  background: #0d6efd !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-outline-secondary {
+  color: #b0b3b8 !important;
+  border-color: #b0b3b8 !important;
+  background: transparent !important;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+  background: #b0b3b8 !important;
+  color: #23272b !important;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .navbar {
+  color: #e0e0e0 !important;
+  background: #23272b !important;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .navbar-brand {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .sidebar {
+  background: #20232a !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .sidebar .nav-link.active,
+body.dark-mode .sidebar .nav-link:hover {
+  background-color: #181a1b !important;
+  color: #0d6efd !important;
+}
+
+body.dark-mode .table {
+  color: #e0e0e0 !important;
+  background: #23272b !important;
+}
+
+body.dark-mode .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #20232a !important;
+}
+
+body.dark-mode .table-hover > tbody > tr:hover {
+  background-color: #181a1b !important;
+}
+
+body.dark-mode .list-group-item {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .alert {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .progress-bar {
+  background-color: #0d6efd !important;
+}
+
+body.dark-mode .form-check-input:checked {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+}
+
+body.dark-mode .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode .pagination .page-link {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .pagination .page-link.active,
+body.dark-mode .pagination .active > .page-link {
+  background: #0d6efd !important;
+  color: #fff !important;
+  border-color: #0d6efd !important;
+}
+
+body.dark-mode .badge.bg-secondary {
+  background: #343a40 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .badge.bg-primary {
+  background: #0d6efd !important;
+  color: #fff !important;
+}
+
+/* Scrollbar for dark mode */
+body.dark-mode ::-webkit-scrollbar {
+  width: 8px;
+  background: #23272b;
+}
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #343a40;
+  border-radius: 4px;
+}
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Links */
+body.dark-mode a {
+  color: #4f8cff;
+}
+body.dark-mode a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+/* Muted backgrounds and text */
+body.dark-mode .bg-muted,
+body.dark-mode .bg-light {
+  background: #23272b !important;
+  color: #b0b3b8 !important;
+}
+
+/* Custom shadow for cards in dark mode */
+body.dark-mode .card,
+body.dark-mode .modal-content {
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Icon color tweaks */
+body.dark-mode .bi,
+body.dark-mode .icon,
+body.dark-mode i {
+  color: #b0b3b8 !important;
+}
+
+/* Tooltip */
+body.dark-mode .tooltip-inner {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+}
+
+/* Make sure all text is readable */
+body.dark-mode * {
+  text-shadow: none !important;
+}
+
+/* Offcanvas button and offcanvas panel for dark mode */
+body.dark-mode .offcanvas,
+body.dark-mode .offcanvas.offcanvas-start,
+body.dark-mode .offcanvas.offcanvas-end,
+body.dark-mode .offcanvas.offcanvas-top,
+body.dark-mode .offcanvas.offcanvas-bottom {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #343a40 !important;
+}
+
+body.dark-mode .offcanvas-header,
+body.dark-mode .offcanvas-title {
+  color: #e0e0e0 !important;
+  border-bottom: 1px solid #343a40 !important;
+}
+
+body.dark-mode .offcanvas .btn-close {
+  filter: invert(1) grayscale(1) brightness(1.5);
+  background-color: transparent !important;
+  opacity: 0.8;
+}
+
+body.dark-mode .offcanvas .btn-close:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode .offcanvas .nav-link,
+body.dark-mode .offcanvas .list-group-item {
+  color: #e0e0e0 !important;
+  background: transparent !important;
+}
+
+body.dark-mode .offcanvas .nav-link.active,
+body.dark-mode .offcanvas .nav-link:hover {
+  background-color: #181a1b !important;
+  color: #0d6efd !important;
+}
+
+/* If you have a custom offcanvas toggle button */
+body.dark-mode .offcanvas-toggle,
+body.dark-mode .btn-offcanvas {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #343a40 !important;
+}
+
+body.dark-mode .offcanvas-toggle:hover,
+body.dark-mode .btn-offcanvas:hover {
+  background: #181a1b !important;
+  color: #0d6efd !important;
+  border-color: #0d6efd !important;
+}

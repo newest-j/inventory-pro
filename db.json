@@ -9,7 +9,44 @@
       "password": "A!ssdjhj76",
       "phoneNumber": "+2345566778888",
       "companySize": "201-1000",
-      "products": [],
+      "products": [
+        {
+          "category": "Other",
+          "id": "2",
+          "name": "Dy",
+          "price": 7000,
+          "quantity": 37,
+          "status": "active",
+          "supplier": "Gucci",
+          "location": "Gra iv street",
+          "lowstock": 11,
+          "description": "Style"
+        },
+        {
+          "category": "Other",
+          "id": "9",
+          "name": "water",
+          "price": 0.5,
+          "quantity": 20,
+          "status": "discontinued",
+          "supplier": "Zara",
+          "location": "Gra iv street",
+          "lowstock": 47,
+          "description": "j bwej "
+        },
+        {
+          "category": "Accessories",
+          "id": "10",
+          "name": "Gold",
+          "price": 0.37,
+          "quantity": 52,
+          "status": "active",
+          "supplier": "Zara",
+          "location": "t4t",
+          "lowstock": 14,
+          "description": "gregr"
+        }
+      ],
       "stats": {
         "total_product": 0,
         "in_stock": 0,
@@ -17,7 +54,39 @@
         "out_of_stock": 0,
         "total_categories": 0,
         "active_categories": 0
-      }
+      },
+      "categories": [
+        {
+          "id": "1",
+          "name": "Money",
+          "description": "bills",
+          "icon": "bi-currency-dollar",
+          "color": "#41fd0d",
+          "status": "active",
+          "createdAt": "2025-07-03T19:00:46.227Z",
+          "updatedAt": "2025-07-03T19:00:46.228Z"
+        },
+        {
+          "id": "2",
+          "name": "Other",
+          "description": "other",
+          "icon": "bi-tag",
+          "color": "#fd0d3d",
+          "status": "active",
+          "createdAt": "2025-07-03T19:01:34.787Z",
+          "updatedAt": "2025-07-03T19:01:34.787Z"
+        },
+        {
+          "id": "3",
+          "name": "Accessories",
+          "description": "Accessories",
+          "icon": "bi-tag",
+          "color": "#fd490d",
+          "status": "active",
+          "createdAt": "2025-07-03T19:02:31.062Z",
+          "updatedAt": "2025-07-03T19:19:11.040Z"
+        }
+      ]
     }
   ]
 }

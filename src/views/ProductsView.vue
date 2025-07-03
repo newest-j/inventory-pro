@@ -21,7 +21,9 @@
         <div class="d-flex align-items-center">
           <offcanvas class="me-3" />
           <h2 class="mb-0 text-dark me-3">Products</h2>
-          <span class="badge bg-primary fs-6">24 items</span>
+          <span class="badge bg-primary fs-6">{{
+            userProduct.getTotalProduct
+          }}</span>
         </div>
         <div
           class="user-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
@@ -56,7 +58,9 @@
                   <i class="bi bi-box-seam fs-3"></i>
                 </div>
                 <div>
-                  <h3 class="card-title mb-1 fw-bold">24</h3>
+                  <h3 class="card-title mb-1 fw-bold">
+                    {{ userProduct.getTotalProduct }}
+                  </h3>
                   <p class="card-text text-muted small mb-0">Total Products</p>
                 </div>
               </div>
@@ -71,7 +75,9 @@
                   <i class="bi bi-check-circle fs-3"></i>
                 </div>
                 <div>
-                  <h3 class="card-title mb-1 fw-bold">18</h3>
+                  <h3 class="card-title mb-1 fw-bold">
+                    {{ userProduct.getInStockProducts }}
+                  </h3>
                   <p class="card-text text-muted small mb-0">In Stock</p>
                 </div>
               </div>
@@ -86,7 +92,9 @@
                   <i class="bi bi-exclamation-triangle fs-3"></i>
                 </div>
                 <div>
-                  <h3 class="card-title mb-1 fw-bold">4</h3>
+                  <h3 class="card-title mb-1 fw-bold">
+                    {{ userProduct.getLowStockProducts }}
+                  </h3>
                   <p class="card-text text-muted small mb-0">Low Stock</p>
                 </div>
               </div>
@@ -101,7 +109,9 @@
                   <i class="bi bi-x-circle fs-3"></i>
                 </div>
                 <div>
-                  <h3 class="card-title mb-1 fw-bold">2</h3>
+                  <h3 class="card-title mb-1 fw-bold">
+                    {{ userProduct.getOutOfStockProducts }}
+                  </h3>
                   <p class="card-text text-muted small mb-0">Out of Stock</p>
                 </div>
               </div>
@@ -117,16 +127,21 @@
                 <div class="d-flex flex-wrap gap-3 align-items-center">
                   <div class="flex-grow-1 d-flex flex-wrap gap-3">
                     <select
+                      v-model="selectedCategory"
                       class="form-select filter-select"
                       style="max-width: 200px"
                     >
                       <option value="">All Categories</option>
-                      <option value="electronics">Electronics</option>
-                      <option value="clothing">Clothing</option>
-                      <option value="books">Books</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Gaming">Gaming</option>
+                      <option value="Audio">Audio</option>
+                      <option value="Cables">Cables</option>
+                      <option value="Other">Other</option>
                     </select>
 
                     <select
+                      v-model="selectedStatus"
                       class="form-select filter-select"
                       style="max-width: 200px"
                     >
@@ -144,6 +159,7 @@
                         <i class="bi bi-search"></i>
                       </span>
                       <input
+                        v-model="searchTerm"
                         type="text"
                         class="form-control"
                         placeholder="Search products..."
@@ -152,14 +168,11 @@
                   </div>
 
                   <div class="d-flex gap-2">
-                    <button class="btn btn-outline-secondary hover-scale">
-                      <i class="bi bi-download me-1"></i>
-                      Export
-                    </button>
                     <button
                       class="btn btn-primary hover-lift"
                       data-bs-toggle="modal"
-                      data-bs-target="#addProductModal"
+                      data-bs-target="#ProductModal"
+                      @click="selectedProductId = null"
                     >
                       <i class="bi bi-plus me-1"></i>
                       Add Product
@@ -171,102 +184,195 @@
           </div>
         </div>
 
+        <!-- Bootstrap Spinner -->
+        <div
+          v-if="userProduct.loading"
+          class="loading-container d-flex flex-column align-items-center justify-content-center py-5"
+        >
+          <div
+            class="spinner-border text-primary"
+            role="status"
+            style="width: 3rem; height: 3rem"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-3 text-muted">Loading products...</p>
+        </div>
+
         <!-- Products Grid -->
-        <div class="row">
-          <!-- Product Card 1 -->
-          <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
+        <div v-else class="row">
+          <!-- Product Card  -->
+          <div v-if="paginatedProducts.length > 0" class="row">
             <div
-              class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
+              v-for="(product, index) in paginatedProducts"
+              :key="product.id || index"
+              class="col-xl-4 col-lg-6 col-md-6 mb-4"
             >
-              <div class="card-body p-4">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <div class="product-image-placeholder">
-                    <i class="bi bi-phone fs-1 text-muted"></i>
+              <div
+                class="card product-card border-0 shadow-sm h-100 hover-lift-scale"
+              >
+                <div class="card-body p-4">
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-3"
+                  >
+                    <div class="product-image-placeholder">
+                      <!-- Dynamic icon based on product category -->
+                      <i
+                        :class="getCategoryIcon(product.category)"
+                        class="fs-1 text-muted"
+                      ></i>
+                    </div>
+                    <div class="dropdown">
+                      <button
+                        class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <i class="bi bi-three-dots-vertical"></i>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <button
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#ProductModal"
+                            class="dropdown-item"
+                            @click="selectedProductId = product.id"
+                          >
+                            <i class="bi bi-pencil me-2"></i>Edit
+                          </button>
+                        </li>
+
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <button
+                            type="button"
+                            @click="userProduct.deleteProduct(product.id)"
+                            class="dropdown-item text-danger"
+                          >
+                            <i class="bi bi-trash me-2"></i>Delete
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="dropdown">
+
+                  <h5 class="card-title fw-bold mb-2">{{ product.name }}</h5>
+                  <p class="text-muted small mb-3">{{ product.category }}</p>
+
+                  <div class="row mb-3">
+                    <div class="col-6">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-box me-2 text-muted"></i>
+                        <span class="small text-muted">Quantity</span>
+                      </div>
+                      <div class="fw-bold">{{ product.quantity }}</div>
+                    </div>
+                    <div class="col-6">
+                      <div class="d-flex align-items-center">
+                        <span class="me-2 text-muted fw-bold">₦</span>
+                        <span class="small text-muted">Price</span>
+                      </div>
+                      <div class="fw-bold">
+                        {{ product.price.toLocaleString() }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <small class="text-muted">{{ product.supplier }}</small>
+                    <span class="badge" :class="getStockBadgeClass(product)">{{
+                      getStockText(product)
+                    }}</span>
+                  </div>
+
+                  <div class="progress mb-3" style="height: 6px">
+                    <div
+                      class="progress-bar"
+                      :class="getProgressBarClass(product)"
+                      :style="{ width: getStockPercentage(product) + '%' }"
+                    ></div>
+                  </div>
+
+                  <div class="d-grid gap-2">
                     <button
-                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
+                      data-bs-target="#ViewProductModal"
+                      data-bs-toggle="modal"
+                      @click="selectedProductId = product.id"
+                      class="btn btn-sm hover-scale"
+                      :class="[
+                        product.status === 'inactive' ||
+                        product.status === 'discontinued'
+                          ? 'btn-outline-secondary text-muted'
+                          : 'btn-outline-primary',
+                      ]"
+                      :disabled="
+                        product.status === 'inactive' ||
+                        product.status === 'discontinued'
+                      "
                     >
-                      <i class="bi bi-three-dots-vertical"></i>
+                      <i
+                        :class="[
+                          product.status === 'inactive' ||
+                          product.status === 'discontinued'
+                            ? 'bi bi-eye-slash me-1'
+                            : 'bi bi-eye me-1',
+                        ]"
+                      ></i>
+                      {{
+                        product.status === "inactive" ||
+                        product.status === "discontinued"
+                          ? "Unavailable"
+                          : "View Details"
+                      }}
                     </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          ><i class="bi bi-pencil me-2"></i>Edit</a
-                        >
-                      </li>
-
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item text-danger" href="#"
-                          ><i class="bi bi-trash me-2"></i>Delete</a
-                        >
-                      </li>
-                    </ul>
                   </div>
-                </div>
-
-                <h5 class="card-title fw-bold mb-2">iPhone 14 Pro</h5>
-                <p class="text-muted small mb-3">Electronics</p>
-
-                <div class="row mb-3">
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-box me-2 text-muted"></i>
-                      <span class="small text-muted">Quantity</span>
-                    </div>
-                    <div class="fw-bold">45</div>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-currency-dollar me-2 text-muted"></i>
-                      <span class="small text-muted">Price</span>
-                    </div>
-                    <div class="fw-bold">$999.00</div>
-                  </div>
-                </div>
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <small class="text-muted">Apple Inc.</small>
-                  <span class="badge bg-success">In Stock</span>
-                </div>
-
-                <div class="progress mb-3" style="height: 6px">
-                  <div class="progress-bar bg-success" style="width: 75%"></div>
-                </div>
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-outline-primary btn-sm hover-scale">
-                    <i class="bi bi-eye me-1"></i>
-                    View Details
-                  </button>
                 </div>
               </div>
             </div>
           </div>
+
+          <div v-else class="text-center py-5 text-muted">
+            <i class="bi bi-box-seam fs-1 mb-3"></i>
+            <div>No products found for your filter.</div>
+          </div>
         </div>
 
         <!-- Pagination -->
-        <nav class="mt-4">
+        <nav class="mt-4" v-if="totalPages > 1">
           <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+            <li class="page-item" :class="{ disabled: currentPage === 1 }">
+              <a
+                class="page-link"
+                href="#"
+                aria-label="Previous"
+                @click.prevent="goToPage(currentPage - 1)"
+              >
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
+            <li
+              v-for="page in totalPages"
+              :key="page"
+              class="page-item"
+              :class="{ active: currentPage === page }"
+            >
+              <a class="page-link" href="#" @click.prevent="goToPage(page)">{{
+                page
+              }}</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+            <li
+              class="page-item"
+              :class="{ disabled: currentPage === totalPages }"
+            >
+              <a
+                class="page-link"
+                href="#"
+                aria-label="Next"
+                @click.prevent="goToPage(currentPage + 1)"
+              >
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
@@ -279,16 +385,57 @@
 
     <div
       class="modal fade"
-      id="addProductModal"
+      id="ProductModal"
       tabindex="-1"
       aria-labelledby="addProductModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-xl">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="addProductModalLabel">
-              Add New Product
+              {{ selectedProductId ? "Edit Product" : "Add New Product" }}
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex justify-content-center">
+            <InventoryForm
+              :editProductId="selectedProductId"
+              :closeModal="closeModal"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              ref="cancelButtonRef"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal to view product -->
+    <div
+      class="modal fade"
+      id="ViewProductModal"
+      tabindex="-1"
+      aria-labelledby="viewProductModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="viewProductModalLabel">
+              Product Details
             </h5>
             <button
               type="button"
@@ -298,7 +445,51 @@
             ></button>
           </div>
           <div class="modal-body">
-            <InventoryForm />
+            <div v-if="viewProduct">
+              <div class="row mb-3">
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                  <i
+                    :class="getCategoryIcon(viewProduct.category)"
+                    class="fs-1 text-muted"
+                  ></i>
+                  <div class="fw-bold mt-2">{{ viewProduct.name }}</div>
+                  <div class="text-muted small">
+                    {{ viewProduct.category }}
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <strong>Supplier:</strong> {{ viewProduct.supplier }}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Location:</strong> {{ viewProduct.location }}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Quantity:</strong> {{ viewProduct.quantity }}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Price:</strong> ₦{{
+                        viewProduct.price?.toLocaleString()
+                      }}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Status:</strong> {{ viewProduct.status }}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Description:</strong>
+                      {{ viewProduct.description }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div v-else>
+              <div class="text-center text-muted py-5">
+                <i class="bi bi-box-seam fs-1 mb-3"></i>
+                <div>No product selected.</div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -306,11 +497,7 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
-            </button>
-            <button type="button" class="btn btn-primary">
-              <i class="bi bi-plus me-1"></i>
-              Add Product
+              Close
             </button>
           </div>
         </div>
@@ -320,7 +507,139 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, useTemplateRef, computed } from "vue";
 import InventoryForm from "../components/InventoryForm.vue";
+import { useDarkMode } from "../composables/useDarkMode";
+
+import { userProductStore } from "../stores/UserProductStore";
+import { useRouter } from "vue-router";
+useDarkMode();
+
+const selectedProductId = ref<string | null>(null);
+const cancelButtonRef = useTemplateRef<HTMLButtonElement>("cancelButtonRef");
+const userProduct = userProductStore();
+const router = useRouter();
+const selectedCategory = ref<string>("");
+const selectedStatus = ref<string>("");
+const searchTerm = ref<string>("");
+
+const closeModal = () => {
+  if (cancelButtonRef.value) {
+    cancelButtonRef.value.click();
+  }
+  // Reset selected product ID
+  selectedProductId.value = null;
+};
+
+const viewProduct = computed(() => {
+  return userProduct.products.find((p) => p.id === selectedProductId.value);
+});
+
+onMounted(async () => {
+  const success = await userProduct.loadUserProduct();
+  if (!success) {
+    router.push("/");
+  }
+});
+
+const displayedProducts = computed(() => {
+  return userProduct.filteredProducts(
+    selectedCategory.value,
+    selectedStatus.value,
+    searchTerm.value
+  );
+});
+
+// pagination
+
+const currentPage = ref(1);
+const pageSize = 6; // Number of products per page
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  const end = start + pageSize;
+  return displayedProducts.value.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(displayedProducts.value.length / pageSize);
+});
+
+function goToPage(page: number) {
+  if (page >= 1 && page <= totalPages.value) {
+    currentPage.value = page;
+  }
+}
+
+const getStockText = (product: any) => {
+  if (product.quantity === 0) {
+    return "Out of Stock";
+  } else if (product.quantity > 0 && product.quantity <= product.lowstock) {
+    return "Low Stock";
+  } else if (product.status === "inactive") {
+    return "Inactive";
+  } else if (product.status === "discontinued") {
+    return "Discontinued";
+  } else {
+    return "In Stock";
+  }
+};
+
+const getStockBadgeClass = (product: any) => {
+  if (product.quantity === 0) return "bg-danger";
+  if (product.quantity > 0 && product.quantity <= product.lowstock)
+    return "bg-warning";
+  if (product.status === "inactive" || product.status === "discontinued")
+    return "bg-secondary";
+  return "bg-success";
+};
+
+const getProgressBarClass = (product: any) => {
+  if (product.quantity === 0) return "bg-danger";
+  if (product.quantity > 0 && product.quantity <= product.lowstock)
+    return "bg-warning";
+  return "bg-success";
+};
+
+const getStockPercentage = (product: any) => {
+  if (product.quantity === 0) return 0;
+  if (product.lowstock === 0) return 100;
+
+  const percentage = Math.min(
+    (product.quantity / (product.lowstock * 2)) * 100,
+    100
+  );
+  return Math.max(percentage, 10);
+};
+
+const getCategoryIcon = (category: string) => {
+  // Convert to lowercase and trim for consistent matching
+  const cat = category?.toLowerCase().trim() || "";
+
+  switch (cat) {
+    case "electronics":
+      return "bi bi-laptop";
+    case "phones":
+    case "mobile":
+      return "bi bi-phone";
+    case "clothing":
+    case "apparel":
+      return "bi bi-tags";
+    case "books":
+      return "bi bi-book";
+    case "food":
+    case "groceries":
+      return "bi bi-cart";
+    case "furniture":
+      return "bi bi-chair";
+    case "tools":
+      return "bi bi-tools";
+    case "sports":
+      return "bi bi-trophy";
+    default:
+      return "bi bi-box";
+  }
+};
 </script>
 
 <style scoped>

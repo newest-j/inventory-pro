@@ -7,29 +7,37 @@
     >
       <div class="card-header bg-white border-0 pb-0">
         <h5 class="card-title mb-0">
-          Add New Inventory Item {{ index > 0 ? `#${index + 1}` : "" }}
+          {{
+            props.editProductId
+              ? `Editing Inventory`
+              : `Add New Inventory Item${index > 0 ? ` #${index + 1}` : ""}`
+          }}
         </h5>
       </div>
       <div class="card-body">
-        <form class="row g-3">
+        <form @submit.prevent="onSubmit" class="row g-3">
           <!-- Product Name -->
           <div class="col-md-6">
             <label for="productName" class="form-label fw-medium"
               >Product Name</label
             >
             <input
+              v-model="forms[index].name"
               type="text"
               class="form-control"
               id="productName"
               placeholder="Enter product name"
-              required
             />
           </div>
 
           <!-- Category -->
           <div class="col-md-6">
             <label for="category" class="form-label fw-medium">Category</label>
-            <select class="form-select" id="category" required>
+            <select
+              class="form-select"
+              v-model="forms[index].category"
+              id="category"
+            >
               <option value="">Select Category</option>
               <option value="Electronics">Electronics</option>
               <option value="Accessories">Accessories</option>
@@ -44,12 +52,12 @@
           <div class="col-md-4">
             <label for="quantity" class="form-label fw-medium">Quantity</label>
             <input
+              v-model="forms[index].quantity"
               type="number"
               class="form-control"
               id="quantity"
               placeholder="Enter quantity"
               min="0"
-              required
             />
           </div>
 
@@ -59,12 +67,12 @@
               >Low Stock Alert</label
             >
             <input
+              v-model="forms[index].lowstock"
               type="number"
               class="form-control"
               id="lowStockThreshold"
               placeholder="Alert when below"
               min="1"
-              required
             />
           </div>
 
@@ -72,13 +80,13 @@
           <div class="col-md-6">
             <label for="price" class="form-label fw-medium">Price (₦)</label>
             <input
+              v-model="forms[index].price"
               type="number"
               class="form-control"
               id="price"
               placeholder="0.00"
               step="0.01"
               min="0"
-              required
             />
           </div>
 
@@ -86,6 +94,7 @@
           <div class="col-md-6">
             <label for="supplier" class="form-label fw-medium">Supplier</label>
             <input
+              v-model="forms[index].supplier"
               type="text"
               class="form-control"
               id="supplier"
@@ -99,6 +108,7 @@
               >Description</label
             >
             <textarea
+              v-model="forms[index].description"
               class="form-control"
               id="description"
               rows="3"
@@ -112,6 +122,7 @@
               >Storage Location</label
             >
             <input
+              v-model="forms[index].location"
               type="text"
               class="form-control"
               id="location"
@@ -122,7 +133,11 @@
           <!-- Status -->
           <div class="col-md-6">
             <label for="status" class="form-label fw-medium">Status</label>
-            <select class="form-select" id="status" required>
+            <select
+              class="form-select"
+              v-model="forms[index].status"
+              id="status"
+            >
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="discontinued">Discontinued</option>
@@ -136,13 +151,30 @@
                 v-if="index === 0 && forms.length === 1"
                 type="submit"
                 class="btn btn-primary"
+                :disabled="userProduct.loading"
               >
-                <i class="fas fa-plus me-2"></i>Add Item
+                <!-- Bootstrap Spinner -->
+                <span
+                  v-if="userProduct.loading"
+                  class="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <i v-else class="fas fa-plus me-2"></i>
+                {{
+                  userProduct.loading
+                    ? props.editProductId
+                      ? "Updating Item..."
+                      : "Adding Item..."
+                    : props.editProductId
+                    ? "Update Item"
+                    : "Add Item"
+                }}
               </button>
 
               <!-- Only show "Add another Form" on the last form -->
               <button
-                v-if="index === forms.length - 1"
+                v-if="index === forms.length - 1 && !props.editProductId"
                 type="button"
                 class="btn btn-outline-info"
                 @click="addForm"
@@ -166,24 +198,168 @@
 
     <button
       v-if="forms.length > 1 ? true : false"
+      @click="onSubmit"
       type="submit"
       class="btn btn-success"
+      :disabled="userProduct.loading"
     >
-      <i class="fas fa-check-circle me-2"></i>Add all Item
+      <!-- Bootstrap Spinner -->
+      <span
+        v-if="userProduct.loading"
+        class="spinner-border spinner-border-sm me-2"
+        role="status"
+        aria-hidden="true"
+      ></span>
+
+      <i v-else class="fas fa-check-circle me-2"></i>
+      {{ userProduct.loading ? "Adding All Item..." : "Add All Item " }}
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const forms = ref([{}]);
+import { ref, watch } from "vue";
+import { userProductStore } from "../stores/UserProductStore";
+
+const props = defineProps(["editProductId", "closeModal"]);
+
+const userProduct = userProductStore();
+
+const forms = ref([
+  {
+    category: "",
+    name: "",
+    price: 0,
+    quantity: 0,
+    status: "active",
+    supplier: "",
+    location: "",
+    lowstock: 0,
+    description: "",
+  },
+]);
 
 const addForm = () => {
-  forms.value.push({});
+  forms.value.push({
+    category: "",
+    name: "",
+    price: 0,
+    quantity: 0,
+    status: "active",
+    supplier: "",
+    location: "",
+    lowstock: 0,
+    description: "",
+  });
 };
 
 const removeForm = (index: number) => {
   forms.value.splice(index, 1);
+};
+
+const resetForm = () => {
+  forms.value = [
+    {
+      category: "",
+      name: "",
+      price: 0,
+      quantity: 0,
+      status: "active",
+      supplier: "",
+      location: "",
+      lowstock: 0,
+      description: "",
+    },
+  ];
+};
+
+const loadProductForEdit = (productId: any) => {
+  const product = userProduct.products.find((p) => p.id === productId);
+  if (product) {
+    forms.value = [
+      {
+        category: product.category || "",
+        name: product.name || "",
+        price: product.price || 0,
+        quantity: product.quantity || 0,
+        status: product.status || "active",
+        supplier: product.supplier || "",
+        location: product.location || "",
+        lowstock: product.lowstock || 0,
+        description: product.description || "",
+      },
+    ];
+  }
+};
+
+// Watch for changes in editProductId prop
+watch(
+  () => props.editProductId,
+  (newId) => {
+    if (newId) {
+      loadProductForEdit(newId);
+    } else {
+      resetForm();
+    }
+  },
+  { immediate: true }
+);
+
+const onSubmit = async () => {
+  if (forms.value.length === 1) {
+    // Assign form data to store
+    Object.assign(userProduct, forms.value[0]);
+
+    if (props.editProductId) {
+      // Update existing product
+      await userProduct.editProduct(props.editProductId);
+    } else {
+      // Create new product
+      await userProduct.createProduct();
+    }
+
+    // Reset form after successful submission
+    resetForm();
+
+    // Close modal using the passed function
+    if (props.closeModal) {
+      props.closeModal();
+    }
+  } else {
+    // Handle multiple forms (only for adding new products)
+    const names = forms.value.map((form) => form.name.trim());
+    const duplicateNames = names.filter(
+      (name, index) => name !== "" && names.indexOf(name) !== index
+    );
+
+    if (duplicateNames.length > 0) {
+      alert(
+        `Error: Duplicate product name(s) found: ${duplicateNames.join(
+          ", "
+        )}. Please use unique names.`
+      );
+      return;
+    }
+
+    userProduct.loading = true;
+
+    try {
+      for (const formData of forms.value) {
+        Object.assign(userProduct, formData);
+        await userProduct.createProduct();
+      }
+      resetForm();
+
+      // Close modal using the passed function
+      if (props.closeModal) {
+        props.closeModal();
+      }
+    } catch (error) {
+      console.error("Error adding multiple items:", error);
+    } finally {
+      userProduct.loading = false;
+    }
+  }
 };
 </script>
 

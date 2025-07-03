@@ -173,6 +173,8 @@ export const userInfoStore = defineStore("userInfo", {
         setTimeout(() => {
           if (router) router.push("/login");
         }, 1000);
+
+        return true;
       }
     },
 
@@ -208,7 +210,7 @@ export const userInfoStore = defineStore("userInfo", {
             timer: 3000,
             toast: true,
           });
-          return;
+          return false;
         }
 
         const passwordExists = users.some(
@@ -224,7 +226,7 @@ export const userInfoStore = defineStore("userInfo", {
             timer: 3000,
             toast: true,
           });
-          return;
+          return false;
         }
 
         let maxId = 0;
@@ -308,6 +310,7 @@ export const userInfoStore = defineStore("userInfo", {
           timer: 3000,
           toast: true,
         });
+        return false;
       }
     },
 
@@ -337,7 +340,7 @@ export const userInfoStore = defineStore("userInfo", {
           !this.error.companySize
         ) {
           // If validation passes, create user
-          await this.createUser(
+          const result = await this.createUser(
             {
               firstName: this.firstName,
               lastName: this.lastName,
@@ -349,6 +352,7 @@ export const userInfoStore = defineStore("userInfo", {
             },
             router
           );
+          return result ? true : false;
         } else {
           // If validation fails, show error
           Swal.fire({
@@ -359,6 +363,7 @@ export const userInfoStore = defineStore("userInfo", {
             timer: 3000,
             toast: true,
           });
+          return false;
         }
       } catch (error: any) {
         console.error("Handle submit error:", error);
@@ -371,6 +376,7 @@ export const userInfoStore = defineStore("userInfo", {
           timer: 3000,
           toast: true,
         });
+        return false;
       } finally {
         if (!this.isAuthenticated) {
           this.isSubmitting = false;
@@ -422,7 +428,7 @@ export const userInfoStore = defineStore("userInfo", {
             timer: 3000,
             toast: true,
           });
-          return null;
+          return false;
         }
       } catch (error: any) {
         console.error("Error logging in:", error);
@@ -435,6 +441,7 @@ export const userInfoStore = defineStore("userInfo", {
           timer: 3000,
           toast: true,
         });
+        return false;
       }
     },
 
@@ -449,7 +456,8 @@ export const userInfoStore = defineStore("userInfo", {
         // Check if there are any validation errors
         if (!this.error.email && !this.error.password) {
           // If validation passes, create user
-          await this.loginUser(router);
+          const result = await this.loginUser(router);
+          return result ? true : false;
         } else {
           // If validation fails, show error
           Swal.fire({
@@ -460,6 +468,7 @@ export const userInfoStore = defineStore("userInfo", {
             timer: 3000,
             toast: true,
           });
+          return false;
         }
       } catch (error: any) {
         console.error("Handle login error:", error);
@@ -472,6 +481,7 @@ export const userInfoStore = defineStore("userInfo", {
           timer: 3000,
           toast: true,
         });
+        return false;
       } finally {
         if (!this.isAuthenticated) {
           this.isLogging = false;

@@ -198,6 +198,7 @@
                               class="form-check-input"
                               type="checkbox"
                               id="darkMode"
+                              v-model="darkMode"
                             />
                           </div>
                         </div>
@@ -899,7 +900,11 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useDarkMode } from "../composables/useDarkMode";
+
+const { darkMode } = useDarkMode();
+</script>
 
 <style scoped>
 /* Base Layout */

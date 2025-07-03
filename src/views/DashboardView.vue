@@ -33,35 +33,26 @@
                 <h5 class="card-title mb-0">Low-Stock Alerts</h5>
               </div>
               <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center py-2 border-bottom"
-                >
-                  <span class="fw-medium">Samsung Galaxy S23</span>
-                  <span class="badge bg-warning text-dark">8 left</span>
+                <div v-if="userProduct.getLowStockProductsData.length > 0">
+                  <div
+                    v-for="(
+                      product, index
+                    ) in userProduct.getLowStockProductsData"
+                    :key="product.id || index"
+                    class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                  >
+                    <span class="fw-medium">{{ product.name }}</span>
+                    <span class="badge bg-warning text-dark">
+                      {{ product.quantity }} left
+                    </span>
+                  </div>
                 </div>
-                <div
-                  class="d-flex justify-content-between align-items-center py-2 border-bottom"
-                >
-                  <span class="fw-medium">Wireless Earbuds</span>
-                  <span class="badge bg-warning text-dark">5 left</span>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center py-2 border-bottom"
-                >
-                  <span class="fw-medium">Gaming Mouse</span>
-                  <span class="badge bg-warning text-dark">3 left</span>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center py-2 border-bottom"
-                >
-                  <span class="fw-medium">USB-C Cable</span>
-                  <span class="badge bg-warning text-dark">2 left</span>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center py-2"
-                >
-                  <span class="fw-medium">Bluetooth Speaker</span>
-                  <span class="badge bg-warning text-dark">1 left</span>
+
+                <div v-else class="text-center text-muted py-4">
+                  <i
+                    class="bi bi-check-circle-fill text-success fs-4 d-block mb-2"
+                  ></i>
+                  <p class="mb-0">All products are well-stocked!</p>
                 </div>
               </div>
             </div>
@@ -73,7 +64,23 @@
 </template>
 
 <script setup lang="ts">
+import { useDarkMode } from "../composables/useDarkMode";
 import InventoryForm from "../components/InventoryForm.vue";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { userProductStore } from "../stores/UserProductStore";
+
+const userProduct = userProductStore();
+const router = useRouter();
+
+useDarkMode();
+
+onMounted(async () => {
+  const success = await userProduct.loadUserProduct();
+  if (!success) {
+    router.push("/");
+  }
+});
 </script>
 
 <style scoped>
