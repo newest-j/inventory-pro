@@ -3,6 +3,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import type { Product } from "@/product/product";
 
+const API_BASE_URL = "https://686790d4e3fefb261edf218d.mockapi.io/users";
+
 export const userProductStore = defineStore("userProduct", {
   state: () => ({
     category: "",
@@ -171,9 +173,7 @@ export const userProductStore = defineStore("userProduct", {
 
         const userId: string = JSON.parse(userString);
 
-        const currentUser = await axios.get(
-          `http://localhost:3000/users/${userId}`
-        );
+        const currentUser = await axios.get(`${API_BASE_URL}/${userId}`);
         if (!currentUser) {
           throw new Error("Failed to fetch user data");
         }
@@ -225,9 +225,7 @@ export const userProductStore = defineStore("userProduct", {
 
         const userId: string = JSON.parse(userString);
 
-        const currentUser = await axios.get(
-          `http://localhost:3000/users/${userId}`
-        );
+        const currentUser = await axios.get(`${API_BASE_URL}/${userId}`);
 
         if (!currentUser) {
           throw new Error("Failed to fetch user data");
@@ -279,7 +277,7 @@ export const userProductStore = defineStore("userProduct", {
         userProducts.push(newProduct);
 
         const updatedUserProduct = await axios.put(
-          `http://localhost:3000/users/${userId}`,
+          `${API_BASE_URL}/${userId}`,
           userData
         );
 
@@ -355,7 +353,7 @@ export const userProductStore = defineStore("userProduct", {
           throw new Error("Product not found");
         }
 
-        const user = await axios.get(`http://localhost:3000/users/${userId}`);
+        const user = await axios.get(`${API_BASE_URL}/${userId}`);
         const userData = await user.data;
 
         const productMatchIndex = userData?.products.findIndex(
@@ -401,7 +399,7 @@ export const userProductStore = defineStore("userProduct", {
         userData.products[productMatchIndex] = updatedProduct;
 
         const editProductUpdated = await axios.put(
-          `http://localhost:3000/users/${userId}`,
+          `${API_BASE_URL}/${userId}`,
           userData
         );
 
@@ -474,7 +472,7 @@ export const userProductStore = defineStore("userProduct", {
 
         const userId: string = JSON.parse(userString);
 
-        const user = await axios.get(`http://localhost:3000/users/${userId}`);
+        const user = await axios.get(`${API_BASE_URL}/${userId}`);
         const userData = await user.data;
 
         const userProduct = await userData?.products;
@@ -505,7 +503,7 @@ export const userProductStore = defineStore("userProduct", {
         }
 
         const updatedUser = await axios.put(
-          `http://localhost:3000/users/${userId}`,
+          `${API_BASE_URL}/${userId}`,
           userData
         );
 

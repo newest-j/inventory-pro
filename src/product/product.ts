@@ -10,17 +10,3 @@ export interface Product {
   lowstock: number;
   description: string;
 }
-
-export interface ProductStatus {
-  total_product: number;
-  in_stock: number;
-  low_stock: number;
-  out_of_stock: number;
-  total_categories: number;
-  active_categories: number;
-}
-
-// export interface UserResponse {
-//   products: Product[];
-//   stats: ProductStatus;
-// }

@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 import Swal from "sweetalert2";
 import type UserData from "@/userData/users";
 
+const API_BASE_URL = "https://686790d4e3fefb261edf218d.mockapi.io/users";
 export const userInfoStore = defineStore("userInfo", {
   state: () => ({
     firstName: "",
@@ -194,7 +195,7 @@ export const userInfoStore = defineStore("userInfo", {
 
     async createUser(userData: UserData, router: any) {
       try {
-        const response = await axios.get("http://localhost:3000/users");
+        const response = await axios.get(API_BASE_URL);
         const users = await response.data;
 
         const emailExists = users.some(
@@ -242,20 +243,9 @@ export const userInfoStore = defineStore("userInfo", {
           id: nextId,
           ...userData,
           products: [],
-          stats: {
-            total_product: 0,
-            in_stock: 0,
-            low_stock: 0,
-            out_of_stock: 0,
-            total_categories: 0,
-            active_categories: 0,
-          },
         };
 
-        const postResponse = await axios.post(
-          "http://localhost:3000/users",
-          newUser
-        );
+        const postResponse = await axios.post(API_BASE_URL, newUser);
 
         if (postResponse.status !== 200 && postResponse.status !== 201) {
           throw new Error("Failed to create user");
@@ -387,7 +377,7 @@ export const userInfoStore = defineStore("userInfo", {
     // login
     async loginUser(router: any) {
       try {
-        const response = await axios.get("http://localhost:3000/users");
+        const response = await axios.get(API_BASE_URL);
         const users = await response.data;
 
         const matchedUser = users.find((user: UserData) => {
