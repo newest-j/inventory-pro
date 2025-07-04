@@ -7,7 +7,7 @@
     <div class="main-content">
       <!-- Header -->
       <header
-        class="header bg-white border-bottom d-flex justify-content-between align-items-center px-4 py-3"
+        class="header bg-white border-bottom d-flex flex-wrap justify-content-between align-items-center px-4 py-3"
         v-motion
         :initial="{ opacity: 0, y: -20 }"
         :enter="{
@@ -19,7 +19,7 @@
           },
         }"
       >
-        <div class="d-flex align-items-center">
+        <div class="d-flex flex-wrap align-items-center">
           <offcanvas class="me-3" />
           <h2 class="mb-0 text-dark me-3">Categories</h2>
           <span class="badge bg-primary fs-6"
@@ -1331,13 +1331,17 @@ onMounted(async () => {
   display: flex;
   height: 100vh;
   background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrollbars if content fits */
 }
 
 .main-content {
   flex: 1;
-  margin-left: 250px;
+  margin-left: 250px; /* Sidebar width */
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Allow scrolling in main content */
 }
 
 .header {
@@ -1514,8 +1518,8 @@ onMounted(async () => {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-  .main-content {
-    margin-left: 0;
+  .sidebar {
+    margin-left: -250px;
   }
 
   .category-card {
@@ -1543,6 +1547,12 @@ onMounted(async () => {
 
   .content {
     padding: 1rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    margin-left: 0;
   }
 }
 

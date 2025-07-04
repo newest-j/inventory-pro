@@ -6,7 +6,7 @@
     <div class="main-content">
       <!-- Header -->
       <header
-        class="header bg-white border-bottom d-flex justify-content-between align-items-center px-4 py-3"
+        class="header bg-white border-bottom d-flex flex-wrap justify-content-between align-items-center px-4 py-3"
         v-motion
         :initial="{ opacity: 0, y: -20 }"
         :enter="{
@@ -18,7 +18,7 @@
           },
         }"
       >
-        <div class="d-flex align-items-center">
+        <div class="d-flex flex-wrap align-items-center">
           <offcanvas class="me-3" />
           <h2 class="mb-0 text-dark me-3">Products</h2>
           <span class="badge bg-primary fs-6">{{

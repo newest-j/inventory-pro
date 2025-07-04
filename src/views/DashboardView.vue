@@ -7,7 +7,7 @@
     <div class="main-content">
       <!-- Header -->
       <header
-        class="header bg-white border-bottom d-flex justify-content-between align-items-center px-4 py-3"
+        class="header bg-white border-bottom d-flex flex-wrap justify-content-between align-items-center px-4 py-3"
       >
         <offcanvas />
         <h2 class="mb-0 text-dark">Dashboard</h2>
