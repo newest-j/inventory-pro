@@ -53,7 +53,7 @@
               :duration="600"
               :delay="200"
             >
-              <span class="badge-text">✨ Powered by AI Technology</span>
+              <span class="badge-text"> Powered by AI Technology</span>
             </div>
             <h1
               class="hero-title mb-4"
@@ -211,7 +211,7 @@
             :visible-once="{ opacity: 1, y: 0 }"
             :duration="600"
           >
-            <span class="badge-text">🚀 Powerful Features</span>
+            <span class="badge-text"> Powerful Features</span>
           </div>
           <h2
             class="section-title mb-4"
@@ -313,7 +313,7 @@
             :visible-once="{ opacity: 1, y: 0 }"
             :duration="600"
           >
-            <span class="badge-text">💰 Simple Pricing</span>
+            <span class="badge-text"> Simple Pricing</span>
           </div>
           <h2
             class="section-title mb-4"
@@ -576,7 +576,7 @@
               :visible-once="{ opacity: 1, y: 0 }"
               :duration="600"
             >
-              <span class="badge-text">📞 Get In Touch</span>
+              <span class="badge-text"> Get In Touch</span>
             </div>
             <h2
               class="section-title mb-4"
