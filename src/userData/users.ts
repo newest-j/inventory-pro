@@ -1,4 +1,4 @@
-import type { Product, ProductStatus } from "../product/product";
+import type { Product } from "../product/product";
 
 export default interface UserData {
   id?: string;
@@ -10,5 +10,4 @@ export default interface UserData {
   phoneNumber: string;
   companySize: string;
   products?: Product[];
-  stats?: ProductStatus;
 }
