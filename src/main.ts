@@ -13,7 +13,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-import SideBar from "./components/SideBar.vue";
+import SideBar from "./components/Sidebar.vue";
 import Offcanvas from "./components/Offcanvas.vue";
 
 const app = createApp(App);
