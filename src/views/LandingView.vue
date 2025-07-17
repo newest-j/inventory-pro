@@ -152,7 +152,7 @@
                   </div>
                 </div>
                 <div class="mockup-body">
-                  <div
+                  <!-- <div
                     class="chart-placeholder"
                     v-motion
                     :initial="{ opacity: 0, height: 0 }"
@@ -185,7 +185,13 @@
                       :duration="400"
                       :delay="2400"
                     ></div>
-                  </div>
+                  </div> -->
+
+                  <img
+                    src="/landingpic.png"
+                    alt="Dashboard Preview"
+                    style="width: 100%; border-radius: 8px"
+                  />
                 </div>
               </div>
             </div>
