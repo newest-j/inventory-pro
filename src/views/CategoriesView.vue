@@ -733,7 +733,7 @@ const loadCategories = async () => {
     const userId: string = JSON.parse(userString);
 
     const currentUser = await axios.get(
-      `http://localhost:3000/users/${userId}`
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`
     );
     if (!currentUser) {
       throw new Error("Failed to fetch user data");
@@ -785,7 +785,7 @@ const createCategory = async () => {
     const userId: string = JSON.parse(userString);
 
     const currentUser = await axios.get(
-      `http://localhost:3000/users/${userId}`
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`
     );
 
     if (!currentUser) {
@@ -836,7 +836,7 @@ const createCategory = async () => {
     userData.categories = userCategories;
 
     const updatedUserCategory = await axios.put(
-      `http://localhost:3000/users/${userId}`,
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`,
       userData
     );
 
@@ -910,7 +910,9 @@ const editCategory = async (categoryId: string) => {
       throw new Error("Category not found");
     }
 
-    const user = await axios.get(`http://localhost:3000/users/${userId}`);
+    const user = await axios.get(
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`
+    );
     const userData = await user.data;
 
     const categoryMatchIndex = userData?.categories.findIndex(
@@ -953,7 +955,7 @@ const editCategory = async (categoryId: string) => {
     userData.categories[categoryMatchIndex] = updatedCategory;
 
     const editCategoryUpdated = await axios.put(
-      `http://localhost:3000/users/${userId}`,
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`,
       userData
     );
 
@@ -1040,7 +1042,9 @@ const deleteCategory = async (categoryId: string) => {
 
     const userId: string = JSON.parse(userString);
 
-    const user = await axios.get(`http://localhost:3000/users/${userId}`);
+    const user = await axios.get(
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`
+    );
     const userData = await user.data;
 
     const userCategories = await userData?.categories;
@@ -1071,7 +1075,7 @@ const deleteCategory = async (categoryId: string) => {
     }
 
     const updatedUser = await axios.put(
-      `http://localhost:3000/users/${userId}`,
+      `https://686790d4e3fefb261edf218d.mockapi.io/users/${userId}`,
       userData
     );
 
