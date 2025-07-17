@@ -101,7 +101,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              class="nav-link active d-flex align-items-center"
+              class="nav-link d-flex align-items-center"
               to="/settings"
             >
               <i class="bi bi-gear me-2"></i>
