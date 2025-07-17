@@ -4,6 +4,7 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+
 /* Add to base.css or a global style file */
 /* --- Improved Dark Mode Styles --- */
 body.dark-mode {
@@ -151,12 +152,6 @@ body.dark-mode .sidebar {
   color: #e0e0e0 !important;
 }
 
-body.dark-mode .sidebar .nav-link.active,
-body.dark-mode .sidebar .nav-link:hover {
-  background-color: #181a1b !important;
-  color: #0d6efd !important;
-}
-
 body.dark-mode .table {
   color: #e0e0e0 !important;
   background: #23272b !important;
@@ -272,12 +267,20 @@ body.dark-mode * {
   text-shadow: none !important;
 }
 
-body.dark-mode .router-link-active {
+body.dark-mode .sidebar .router-link-active {
   background-color: #181a1b !important;
   color: #0d6efd !important;
   border-right: 3px solid #0d6efd !important;
   font-weight: 600;
 }
+
+body.dark-mode .offcanvas .router-link-active {
+  background-color: #181a1b !important;
+  color: #0d6efd !important;
+  border-right: 3px solid #0d6efd !important;
+  font-weight: 600;
+}
+
 /* Offcanvas button and offcanvas panel for dark mode */
 body.dark-mode .offcanvas,
 body.dark-mode .offcanvas.offcanvas-start,
@@ -305,11 +308,11 @@ body.dark-mode .offcanvas .btn-close:focus {
   box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
-body.dark-mode .offcanvas .nav-link,
+/* body.dark-mode .offcanvas .nav-link,
 body.dark-mode .offcanvas .list-group-item {
   color: #e0e0e0 !important;
   background: transparent !important;
-}
+} */
 
 body.dark-mode .offcanvas .nav-link.active,
 body.dark-mode .offcanvas .nav-link:hover {
